@@ -1,0 +1,100 @@
+html,
+body {
+  background-color: #ffffff;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 80px;
+}
+.responsive-breadcrumb {
+  position: relative;
+  overflow: scroll;
+  width: 100%;
+}
+.responsive-breadcrumb .breadcrumb {
+  display: table;
+  min-width: 100%;
+  background-color: #f7f8f8;
+  padding: 0;
+  margin: 10px 0;
+}
+.responsive-breadcrumb .breadcrumb li {
+  display: table-cell;
+  padding: 10px 0;
+  position: relative;
+}
+.responsive-breadcrumb .breadcrumb li span {
+  padding: 0px 10px 0px 15px;
+  font-size: 1.2em;
+  font-weight: normal;
+  color: #063167;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.responsive-breadcrumb .breadcrumb li:before,
+.responsive-breadcrumb .breadcrumb li:after {
+  content: " ";
+}
+.responsive-breadcrumb .breadcrumb li:not(.active):not(:last-child) {
+  padding-right: 30px;
+}
+.responsive-breadcrumb .breadcrumb li:not(.active):not(:last-child):before,
+.responsive-breadcrumb .breadcrumb li:not(.active):not(:last-child):after {
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  height: 32px;
+  background-color: #e3e5e5;
+  right: 15px;
+}
+.responsive-breadcrumb .breadcrumb li:not(.active):not(:last-child):before {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: -5px;
+}
+.responsive-breadcrumb .breadcrumb li:not(.active):not(:last-child):after {
+  bottom: -5px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.responsive-breadcrumb .breadcrumb li.active {
+  background-color: #063167;
+}
+.responsive-breadcrumb .breadcrumb li.active span {
+  color: #43c7ff;
+  position: relative;
+  z-index: 1;
+}
+.responsive-breadcrumb .breadcrumb li.active:not(:last-child):after {
+  content: "";
+  border-top: 22px solid transparent;
+  border-bottom: 22px solid transparent;
+  border-left: 20px solid #063167;
+  position: absolute;
+  right: -19px;
+  top: 0;
+  z-index: 1;
+}
+.responsive-breadcrumb .breadcrumb li.active:before {
+  content: "";
+  border-top: 22px solid #063167;
+  border-bottom: 22px solid #063167;
+  border-left: 20px solid transparent;
+  position: absolute;
+  left: -30px;
+  top: 0;
+  z-index: 0;
+}
+.responsive-breadcrumb .breadcrumb li:not(:first-child):not(.active) span {
+  padding-left: 30px;
+}

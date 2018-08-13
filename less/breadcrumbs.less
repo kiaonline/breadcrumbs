@@ -1,0 +1,132 @@
+html,
+body {
+	background-color: #ffffff;
+}
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body{
+	margin-bottom: 80px;
+}
+
+.transform(...) {
+	-webkit-transform: @arguments;
+	-moz-transform: @arguments;
+	-o-transform: @arguments;
+	-ms-transform: @arguments;
+	transform: @arguments;
+}
+.rotation(@deg:5deg){
+  	.transform(rotate(@deg));
+}
+.scale(@ratio:1.5){
+  	.transform(scale(@ratio));
+}
+
+.opacity(@opacity: 0.5) {
+	-moz-opacity: @opacity;
+	-khtml-opacity: @opacity;
+	-webkit-opacity: @opacity;
+	opacity: @opacity;
+	@opperc: @opacity * 100;
+	-ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+	filter: ~"alpha(opacity=@{opperc})";
+}
+
+
+.responsive-breadcrumb{
+	position: relative;
+	overflow: scroll;
+	width: 100%;
+
+	.breadcrumb{
+		display: table;
+		min-width: 100%;
+		background-color: #f7f8f8;
+		padding: 0;
+		margin: 10px 0;
+		li{
+			display: table-cell;
+			position: relative;
+			padding: 10px 0;
+			position: relative;
+			span{
+				padding: 0px 10px 0px 15px;
+				font-size: 1.2em;
+				font-weight: normal;
+				color: #063167;
+				text-decoration: none;
+				text-transform: uppercase;
+				white-space: nowrap;
+			}
+			&:before,
+			&:after{
+				content:" ";
+			}
+			
+			&:not(.active){
+				&:not(:last-child){
+					padding-right: 30px;
+					&:before,
+					&:after{
+						padding: 0;
+						position: absolute;
+						width: 1px;
+						height: 32px;
+						background-color: #e3e5e5;
+						right: 15px;
+					}
+					&:before{
+						.rotation(-45deg);
+						top: -5px;
+					}
+					&:after{
+						bottom: -5px;
+						.rotation(45deg);
+					}
+				}
+			}
+		
+	
+			&.active{
+				
+				background-color: #063167;
+				span{
+					color:#43c7ff;
+					position: relative;
+					z-index: 1;
+				}
+				&:not(:last-child){
+	
+					&:after{
+						content: "";
+						border-top: 22px solid transparent;
+						border-bottom: 22px solid transparent;
+						border-left: 20px solid #063167;
+						position: absolute;
+						right: -19px;
+						top: 0;
+						z-index: 1;
+					}
+				}
+				&:before{
+					content: "";
+					border-top: 22px solid #063167;
+					border-bottom: 22px solid #063167;
+					border-left: 20px solid transparent;
+					position: absolute;
+					left: -30px;
+					top: 0;
+					z-index: 0;
+				}
+			}
+			&:not(:first-child):not(.active){
+				span{
+					padding-left: 30px;
+				}
+			}
+		}
+	}
+}
